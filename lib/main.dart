@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-// stless
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  return runApp(
+    MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: Container(),
+        backgroundColor: Colors.red,
+        appBar: AppBar(
+          title: Text('Dicee'),
+          backgroundColor: Colors.red,
+        ),
+        body: DicePage(),
       ),
-    );
-  }
+    ),
+  );
 }
 
-class  extends StatelessWidget {
-  const ({ Key? key }) : super(key: key);
-
+class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                print('Left Button');
+              },
+              child: Image.asset('images/dice1.png'),
+            ),
+          ),
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                print('Right Button');
+              },
+              child: Image.asset('images/dice2.png'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
